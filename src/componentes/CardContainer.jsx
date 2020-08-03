@@ -10,7 +10,6 @@ const CardContainer = (props) => {
       .get("https://5f26fcaf0824d8001655edd9.mockapi.io/categories")
       .then((response) => {
         setCategory(response.data);
-        console.log("soy el resp", response);
       });
   }, []);
 
@@ -18,7 +17,12 @@ const CardContainer = (props) => {
     <div>
       {Categoryes.map((category) => {
         return (
-          <Card src={category.img} name={category.name} key={category.id} />
+          <Card
+            src={category.img}
+            name={category.name}
+            key={category.id}
+            id={category.id}
+          />
         );
       })}
     </div>
