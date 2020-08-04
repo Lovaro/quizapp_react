@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import Options from "./Options";
 
 const Question = ({ data }) => {
-  return <div>{data.Question} </div>;
+  const [selected, setSelected] = useState([]);
+
+  const validate = (event) => {
+    setSelected(event.target.name);
+  };
+
+  return (
+    <div>
+      <h4>{data.question}</h4>
+      <Options data={data} validate={validate} selected={selected} />
+    </div>
+  );
 };
 
 export default Question;
